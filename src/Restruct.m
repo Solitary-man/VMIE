@@ -1,5 +1,5 @@
 function S3 = Restruct(S1,H,way)
-%Restruct 将一个0.75*H*N的矩阵扩展至H*N的矩阵 输入S1，way=1、0代表正向与还原
+%Restruct 将一个0.25H*3H的矩阵扩展至H*H的矩阵 输入S1，way=1、0代表正向与还原
 if way==1
     for i=1:H/4
         for j=1:H/4
