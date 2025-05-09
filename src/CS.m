@@ -6,16 +6,19 @@ function [B,Max,Min] = CS(original_image,Phi1,Phi2,Index,RBI_matrix)
 
 %  permutation 
  
- intermediate_encrypted_image = reshape(original_image(Index),size_images,size_images);
+% intermediate_encrypted_image = reshape(original_image(Index),size_images,size_images);
 
- 
+intermediate_encrypted_image = original_image;
 % NPT encryption
 
 final_encrypted_image = negative_postive_transform (intermediate_encrypted_image, RBI_matrix, size_images);
+
 %% Encrypted-image compression 
  %  Gray mapping operation
 
 final_encrypted_image_GM = final_encrypted_image - 128; 
+
+ 
 
 %  — — — — —  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 %   2D compressed sensing (2DCS)
@@ -24,7 +27,7 @@ final_encrypted_image_GM = final_encrypted_image - 128;
 
 Y =  Phi1 * final_encrypted_image_GM * Phi2';                 %   2DCS projection
 
-[B,Max,Min]=Quantization(Y,256);
+[B,Max,Min]=Quantization(Y,255);
 end
 
  
