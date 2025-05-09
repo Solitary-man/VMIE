@@ -1,2 +1,2 @@
 # VMIE
-TEST
+Visually meaningful image encryption
